@@ -1,0 +1,54 @@
+# ── Fill these in once ───────────────────────────────────────────
+author: "Alex Kiss"
+footer_note: ""
+since: 2026
+description: ""   # optional: one sentence for search engines; may stay empty
+# ─────────────────────────────────────────────────────────────────
+
+title: alexkiss.com
+lang: en
+url: "https://alexkiss.com"
+baseurl: ""
+timezone: Europe/Amsterdam
+
+#other_site:
+#  name: alexkiss.nl
+#  url: "https://alexkiss.nl"
+#  lang: nl
+
+licence:
+  name: CC BY-NC 4.0
+  url: "https://creativecommons.org/licenses/by-nc/4.0/"
+
+pages_path: /pages/
+
+labels:
+  earlier: Earlier pages
+  all_pages: All pages
+  newest_first: Newest first.
+  feed: feed
+  not_found: "There is no page at this address."
+  back_home: Back to the newest page
+
+months: [January, February, March, April, May, June, July, August, September, October, November, December]
+
+permalink: /:year/:month/:day/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+feed:
+  path: feed.xml
+
+exclude:
+  - README.md
+  - LICENSE.md

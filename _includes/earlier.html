@@ -1,0 +1,19 @@
+{%- assign before = include.before -%}
+{%- assign shown = 0 -%}
+{%- capture earlier_items -%}
+{%- for p in site.posts -%}
+{%- if p.date < before and shown < 3 -%}
+<li><a href="{{ p.url | relative_url }}"><span class="list-date">{% include date.html date=p.date %}</span><span class="list-title">{{ p.title }}</span></a></li>
+{%- assign shown = shown | plus: 1 -%}
+{%- endif -%}
+{%- endfor -%}
+{%- endcapture -%}
+{%- if shown > 0 -%}
+<section class="earlier" aria-labelledby="earlier-heading">
+<h2 id="earlier-heading" class="label">{{ site.labels.earlier }}</h2>
+<ul class="entry-list">
+{{ earlier_items }}
+</ul>
+<a class="all-link" href="{{ site.pages_path | relative_url }}">{{ site.labels.all_pages }}</a>
+</section>
+{%- endif -%}

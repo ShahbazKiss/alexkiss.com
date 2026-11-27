@@ -1,0 +1,15 @@
+---
+layout: default
+---
+{%- assign latest = site.posts | first -%}
+{%- if latest -%}
+<article class="entry">
+<p class="entry-date"><time datetime="{{ latest.date | date_to_xmlschema }}">{% include date.html date=latest.date year=true %}</time></p>
+<h1 class="entry-title"><a href="{{ latest.url | relative_url }}">{{ latest.title }}</a></h1>
+<div class="entry-body">
+{{ latest.content }}
+</div>
+<p class="asterism" aria-hidden="true">⁂</p>
+</article>
+{% include earlier.html before=latest.date %}
+{%- endif -%}

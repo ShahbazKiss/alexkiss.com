@@ -1,0 +1,24 @@
+---
+layout: default
+permalink: /pages/
+title: All pages
+---
+<div class="archive">
+<div class="archive-head">
+<h1 class="entry-title">{{ site.labels.all_pages }}</h1>
+<p class="note">{{ site.labels.newest_first }}</p>
+</div>
+{%- assign by_month = site.posts | group_by_exp: "p", "p.date | date: '%Y-%m'" -%}
+{%- for group in by_month -%}
+{%- assign first = group.items | first -%}
+{%- assign mi = first.date | date: "%-m" | minus: 1 %}
+<section class="month">
+<h2 class="label">{{ site.months[mi] }} {{ first.date | date: "%Y" }}</h2>
+<ul class="entry-list archive-list">
+{%- for p in group.items %}
+<li><a href="{{ p.url | relative_url }}"><span class="list-day">{{ p.date | date: "%-d" }}</span><span class="list-title">{{ p.title }}</span></a></li>
+{%- endfor %}
+</ul>
+</section>
+{%- endfor %}
+</div>

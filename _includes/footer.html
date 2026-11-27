@@ -1,0 +1,11 @@
+{%- assign since = site.since | append: "" -%}
+{%- assign this_year = site.time | date: "%Y" -%}
+<footer class="site-footer">
+{%- if site.footer_note and site.footer_note != "" %}
+<p class="note">{{ site.footer_note }}</p>
+{%- endif %}
+{%- if site.other_site.url %}
+<a href="{{ site.other_site.url }}" hreflang="{{ site.other_site.lang }}">{{ site.other_site.name }}</a>
+{%- endif %}
+<p class="copyright">© {{ since }}{% if this_year != since %}–{{ this_year }}{% endif %} {{ site.author }} · <a rel="license" href="{{ site.licence.url }}">{{ site.licence.name }}</a></p>
+</footer>

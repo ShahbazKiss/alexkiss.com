@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<link rel="preload" href="{{ '/assets/fonts/eb-garamond-latin-400-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+{% feed_meta %}
+{% seo %}
+</head>
+<body>
+<div class="page">
+<header class="site-header">
+<a class="site-name" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+<a class="feed-link" href="{{ '/feed.xml' | relative_url }}">{{ site.labels.feed }}</a>
+</header>
+<main>
+{{ content }}
+</main>
+{% include footer.html %}
+</div>
+</body>
+</html>
